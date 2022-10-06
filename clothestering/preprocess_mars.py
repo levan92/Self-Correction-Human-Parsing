@@ -6,7 +6,9 @@ MARS_ROOT="/home/acsguser/Data/reid/mars"
 wanted_sets = ['bbox_test', 'bbox_train']
 SAMPLE = 2
 OUTNAME = 'forClothestering'
+SEED = 88
 
+random.seed(SEED)
 mars_root_path = Path(MARS_ROOT)
 out_path = mars_root_path / OUTNAME
 out_path.mkdir(exist_ok=True, parents=True)
@@ -21,8 +23,8 @@ for set_ in wanted_sets:
             pids.append(pid)
             jpgs = [ f for f in pid_path.glob('*.jpg') ]
             for selected in random.sample(jpgs, k=SAMPLE): 
-                print(f'Copy {selected} to {out_path}')
-                # copy(selected, out_path)
+                print(f'Copied {selected} to {out_path}')
+                copy(selected, out_path)
                 count_img += 1
 
 print(f'Total PIDs: {len(pids)}')
