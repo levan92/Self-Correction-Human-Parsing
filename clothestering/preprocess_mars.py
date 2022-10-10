@@ -4,7 +4,7 @@ from shutil import copy
 
 MARS_ROOT="/home/acsguser/Data/reid/mars"
 wanted_sets = ['bbox_test', 'bbox_train']
-SAMPLE = 2
+SAMPLE = 3
 OUTNAME = 'forClothestering'
 SEED = 88
 

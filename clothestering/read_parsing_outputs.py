@@ -10,7 +10,7 @@ WANTED_CLASSES = ['Upper-clothes', 'Dress', 'Coat',]
 IMG_ROOT="/home/acsguser/Data/reid/mars/forClothestering"
 PARSE_OUT_ROOT="/home/acsguser/Data/reid/mars/forClothestering-out"
 OUT_ROOT="/home/acsguser/Data/reid/mars/forClothestering-tops-out"
-COLOR_COUNT=5
+COLOR_COUNT=3
 
 img_root_path = Path(IMG_ROOT)
 wanted_classes_idxes = [ PARSE_CLASSES.index(cl) for cl in WANTED_CLASSES ]
