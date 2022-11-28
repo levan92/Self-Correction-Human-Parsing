@@ -60,7 +60,8 @@ def get_arguments():
     parser.add_argument("--input-dir", type=str, default='', help="path of input image folder.")
     parser.add_argument("--output-dir", type=str, default='', help="path of output image folder.")
     parser.add_argument("--logits", action='store_true', default=False, help="whether to save the logits.")
-
+    parser.add_argument("--save_compressed", help='save npy in model output size (smaller)', action='store_true')
+    parser.add_argument("--outimgext", help="output image extension", default="png")
     return parser.parse_args()
 
 
@@ -141,13 +142,17 @@ def main():
 
             logits_result = transform_logits(upsample_output.data.cpu().numpy(), c, s, w, h, input_size=input_size)
             parsing_result = np.argmax(logits_result, axis=2)
-            parsing_result_path = os.path.join(args.output_dir, img_name[:-4] + '.png')
-            output_img = Image.fromarray(np.asarray(parsing_result, dtype=np.uint8))
-            output_img.putpalette(palette)
-            output_img.save(parsing_result_path)
+            out_parse_res = np.asarray(parsing_result, dtype=np.uint8)
+            # parsing_result_path = os.path.join(args.output_dir, img_name[:-4] + f'.{args.outimgext}')
+            # output_img = Image.fromarray(np.asarray(parsing_result, dtype=np.uint8))
+            # output_img.putpalette(palette)
+            # output_img.save(parsing_result_path)
             if args.logits:
                 logits_result_path = os.path.join(args.output_dir, img_name[:-4] + '.npy')
-                np.save(logits_result_path, logits_result)
+                if args.save_compressed:
+                    np.save(logits_result_path, out_parse_res)
+                else:
+                    np.save(logits_result_path, logits_result)
     return
 
 
