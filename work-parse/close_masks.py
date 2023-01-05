@@ -6,10 +6,12 @@ from random import randint, uniform, seed, shuffle
 from tqdm import tqdm 
 from color_transform import RGBTransform
 
-PARSE_CLASSES = ['Background', 'Hat', 'Hair', 'Glove', 'Sunglasses', 'Upper-clothes', 'Dress', 'Coat', 'Socks', 'Pants', 'Jumpsuits', 'Scarf', 'Skirt', 'Face', 'Left-arm', 'Right-arm', 'Left-leg', 'Right-leg', 'Left-shoe', 'Right-shoe']
-WANTED_CLASSES = None
-PARSE_ROOT="/home/acsguser/Data/WorkProgress/HandPose/data/handpose_dataset_parse"
-OUT_ROOT="/home/acsguser/Data/WorkProgress/HandPose/data/handpose_dataset_parse_closed_k15"
+# PARSE_ROOT="/home/acsguser/Data/WorkProgress/HandPose/data/handpose_dataset_parse"
+# OUT_ROOT="/home/acsguser/Data/WorkProgress/HandPose/data/handpose_dataset_parse_closed_k15"
+
+PARSE_ROOT="/home/acsguser/Data/WorkProgress/HandPose/data/annotated/20221219_fromTaeil-parse"
+OUT_ROOT="/home/acsguser/Data/WorkProgress/HandPose/data/annotated/20221219_fromTaeil-parse_closed_k15"
+
 CLOSING_KERNEL_SIZE=15
 
 parse_out_path = Path(PARSE_ROOT)
