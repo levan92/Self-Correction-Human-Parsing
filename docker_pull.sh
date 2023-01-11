@@ -1,0 +1,1 @@
+docker pull levan92/human-parsing:latest

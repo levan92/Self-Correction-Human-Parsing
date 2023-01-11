@@ -34,3 +34,7 @@ OUTDIR='/home/acsguser/Data/WorkProgress/HandPose/data/annotated/20221219_fromTa
 
 python3 $SCRIPT --dataset lip --model-restore $MODEL --gpu 0 --input-dir $INDIR --output-dir $OUTDIR --logits --save_compressed
 
+KERNEL=15
+PARSE_OUTDIR="${OUTDIR}_closed_k${KERNEL}"
+
+python3 close_masks.py ${OUTDIR} ${PARSE_OUTDIR} --kernel ${KERNEL}

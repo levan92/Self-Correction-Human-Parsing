@@ -1,0 +1,1 @@
+docker build -t levan92/human-parsing:latest .
