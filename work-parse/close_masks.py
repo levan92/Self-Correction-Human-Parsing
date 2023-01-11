@@ -45,3 +45,6 @@ def main():
         out_npy_path = out_path / subpath
         out_npy_path.parent.mkdir(exist_ok=True, parents=True)
         np.save(str(out_npy_path), opened_mask)
+
+if __name__=='__main__':
+    main()

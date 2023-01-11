@@ -17,11 +17,10 @@ RUN pip install --no-cache-dir --upgrade pip wheel setuptools
 WORKDIR /workspace/
 RUN chmod -R 777 /workspace/
 
+ADD https://api.github.com/repos/levan92/Self-Correction-Human-Parsing/git/refs/heads/master git-version.json
 RUN git clone https://github.com/levan92/Self-Correction-Human-Parsing.git
 WORKDIR /workspace/Self-Correction-Human-Parsing
 
-# RUN conda env create -f environment.yaml
-# RUN conda activate schp
 RUN pip install --no-cache-dir -U pip
 RUN pip install --no-cache-dir -r requirements.txt
 
